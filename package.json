@@ -8,6 +8,8 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@react-native-community/toolbar-android": "^0.1.0-rc.2",
+    "eslint-plugin-react": "^7.22.0",
     "expo": "~40.0.0",
     "expo-status-bar": "~1.0.3",
     "react": "16.13.1",
