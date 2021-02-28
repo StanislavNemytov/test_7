@@ -1,7 +1,7 @@
 import React from "react";
 import { View } from "react-native";
 import ButtonFooter from "../Buttons/ButtonFooter/ButtonFooter";
-import styles from "./stylesFooterNav";
+import styles from "./styles";
 
 const FooterNav = (props) => {
   return (

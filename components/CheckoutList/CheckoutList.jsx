@@ -1,6 +1,6 @@
 import React from "react";
 import { FlatList, Pressable, StyleSheet, Text, View } from "react-native";
-import styles from "./stylesCheckoutList";
+import styles from "./styles";
 
 const CheckoutList = (props) => {
   const onPress = (data) => {

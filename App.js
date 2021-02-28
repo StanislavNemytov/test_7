@@ -2,7 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { View } from "react-native";
 import { CheckoutList, Company, FooterNav, Header } from "./components";
-import { baseStyle } from "./src/style/styleSheet";
+import { baseStyle } from "./src/style/base";
 
 export default function App() {
   return (

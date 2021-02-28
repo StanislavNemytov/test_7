@@ -1,6 +1,6 @@
 import React from "react";
 import { Text, View } from "react-native";
-import styles from "./stylesTitle";
+import styles from "./styles";
 
 const Title = ({ text }) => (
   <View style={styles.title_container}>

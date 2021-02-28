@@ -2,7 +2,7 @@ import React from "react";
 import { View } from "react-native";
 import ButtonHeader from "../Buttons/ButtonHeader/ButtonHeader";
 import Title from "../Title/Title";
-import styles from "./stylesHeader";
+import styles from "./styles";
 
 const Header = (props) => {
   return (

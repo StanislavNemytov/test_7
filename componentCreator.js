@@ -5,13 +5,13 @@ var files = "jsx";
 var names = ["COMPONENT"];
 
 let PATHS = {
-  pages: path.join(__dirname, "components/"),
+  pages: path.join(__dirname, "components"),
 };
 
-function createFile(name, prepend = "") {
+function createFile(name, createStyle = false) {
   const component = `import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import styles from "./styles${name}";
+import styles from "./styles";
   
 const ${name} = (props) => {
   return (
@@ -25,13 +25,13 @@ export default ${name};
 `;
 
   const style = `import { StyleSheet } from "react-native";
-import { baseStyle, colors } from "../../src/style/styleSheet";
+import { baseStyle, colors } from "../../src/style/base";
 
-const styles${name} = StyleSheet.create({
+const styles = StyleSheet.create({
   container:{}
 });
 
-export default styles${name};
+export default styles;
 `;
 
   let linkToFolder = `${PATHS.pages}/${name}`;
@@ -39,12 +39,13 @@ export default styles${name};
   if (!fs.existsSync(linkToFolder)) {
     fs.mkdirSync(linkToFolder);
   }
+  const fileName = createStyle ? "styles" : name;
 
   fs.appendFile(
-    `${linkToFolder}/${prepend}${name}.${files}`,
-    prepend ? style : component,
+    `${linkToFolder}/${fileName}.${files}`,
+    createStyle ? style : component,
     () => {
-      console.log(`File "${prepend}${name}.${files}"`);
+      console.log(`File "${fileName}.${files}" was created in folder "${linkToFolder}"`);
     }
   );
 }
@@ -52,7 +53,7 @@ export default styles${name};
 // Create
 names.forEach(async (name) => {
   await createFile(name);
-  await createFile(name, "styles");
+  await createFile(name, true);
 });
 
 // Remove
