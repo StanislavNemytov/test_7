@@ -4,11 +4,11 @@ import ButtonHeader from "../Buttons/ButtonHeader/ButtonHeader";
 import Title from "../Title/Title";
 import styles from "./styles";
 
-const Header = (props) => {
+const Header = () => {
   return (
     <View style={styles.header}>
       <ButtonHeader />
-      <Title text={"Оформление заказа"} />
+      <Title text="Оформление заказа" />
     </View>
   );
 };

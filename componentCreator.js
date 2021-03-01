@@ -1,16 +1,20 @@
 /* eslint-disable no-undef */
-var fs = require("fs");
-var path = require("path");
-var files = "jsx";
-var names = ["COMPONENT"];
+const fs = require("fs");
+const path = require("path");
 
-let PATHS = {
-  pages: path.join(__dirname, "components"),
+const files = "jsx";
+const names = ["TabBar"];
+const folder = "";
+const startFolder = ["components", "layouts"];
+
+const PATHS = {
+  pages: path.join(__dirname, startFolder[0]),
 };
 
-function createFile(name, createStyle = false) {
-  const component = `import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+function createFile(name, writeName = "component") {
+  const write = {
+    component: `import React from "react";
+import { Text, View } from "react-native";
 import styles from "./styles";
   
 const ${name} = (props) => {
@@ -22,38 +26,69 @@ const ${name} = (props) => {
 };
 
 export default ${name};
-`;
+`,
 
-  const style = `import { StyleSheet } from "react-native";
+    styles: `import { StyleSheet } from "react-native";
 import { baseStyle, colors } from "../../src/style/base";
 
-const styles = StyleSheet.create({
+const styles${name} = StyleSheet.create({
   container:{}
 });
 
-export default styles;
-`;
+export default styles${name};
+`,
 
-  let linkToFolder = `${PATHS.pages}/${name}`;
+    layout: `import React from "react";
+import { createStackNavigator } from "@react-navigation/stack";
+import { Text } from "react-native";
+import styles from "./styles";
+
+const Stack = createStackNavigator();
+
+const ${name}Screen = () => (
+  <Stack.Navigator initialRouteName="${name}">
+    <Stack.Screen
+      name="${name}"
+      component={<Text>${name}</Text>}
+      options={{
+        title: "${name}",
+        ...styles,
+      }}
+    />
+  </Stack.Navigator>
+);
+
+export default ${name}Screen;
+`,
+  };
+
+  const folderName = folder ? folder + name : name;
+  const plusFolder = writeName !== "layout" ? `/${folderName}` : "";
+  const linkToFolder = `${PATHS.pages}${plusFolder}`;
 
   if (!fs.existsSync(linkToFolder)) {
     fs.mkdirSync(linkToFolder);
   }
-  const fileName = createStyle ? "styles" : name;
 
-  fs.appendFile(
-    `${linkToFolder}/${fileName}.${files}`,
-    createStyle ? style : component,
-    () => {
-      console.log(`File "${fileName}.${files}" was created in folder "${linkToFolder}"`);
-    }
-  );
+  let fileName = writeName === "styles" ? "styles" : name;
+  if (writeName === "layout") {
+    fileName = `${name}Screen`;
+  }
+  const data = write[writeName];
+  const filePath = `${linkToFolder}/${fileName}.${files}`;
+
+  fs.appendFile(filePath, data, () => {
+    const str = `File "${fileName}.${files}" was created in folder "${linkToFolder}"`;
+    // eslint-disable-next-line no-console
+    console.log(str);
+  });
 }
 
 // Create
 names.forEach(async (name) => {
   await createFile(name);
-  await createFile(name, true);
+  await createFile(name, "styles");
+  // await createFile(name, "layout");
 });
 
 // Remove

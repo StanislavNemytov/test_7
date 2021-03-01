@@ -1,35 +1,41 @@
+/* eslint-disable react/prop-types */
 import React from "react";
-import { FlatList, Pressable, StyleSheet, Text, View } from "react-native";
+import { FlatList, Pressable } from "react-native";
+import Separator from "./Separator/Separator";
 import styles from "./styles";
+import UserData from "./UserData/UserData";
 
-const CheckoutList = (props) => {
-  const onPress = (data) => {
-    console.warn(JSON.stringify(data));
-    alert("On press");
+const CheckoutList = ({ navigation }) => {
+  const onPress = () => {
+    navigation.navigate("Recipes", { name: "Jane" });
+    // console.warn(JSON.stringify(data.key));
   };
 
   return (
     <FlatList
       style={styles.container}
-      ItemSeparatorComponent={({ highlighted }) => (
-        <View style={[styles.separator, highlighted && { marginLeft: 0 }]} />
-      )}
+      ItemSeparatorComponent={() => <Separator />}
       data={[
-        { title: "Title Text", key: "item1" },
-        { title: "Title Text", key: "item2" },
+        {
+          Component: UserData,
+          key: "item-1",
+          press: (data) => onPress(data),
+        },
       ]}
-      renderItem={({ item, _, separators }) => (
-        <Pressable
-          key={item.key}
-          onPress={() => onPress(item)}
-          onShowUnderlay={separators.highlight}
-          onHideUnderlay={separators.unhighlight}
-        >
-          <View style={{ backgroundColor: "white", padding: 20 }}>
-            <Text>{item.title}</Text>
-          </View>
-        </Pressable>
-      )}
+      renderItem={({ item, separators }) => {
+        const { Component, key, press } = item;
+
+        return (
+          <Pressable
+            key={key}
+            onPress={() => press(item)}
+            onShowUnderlay={separators.highlight}
+            onHideUnderlay={separators.unhighlight}
+          >
+            <Component />
+          </Pressable>
+        );
+      }}
     />
   );
 };

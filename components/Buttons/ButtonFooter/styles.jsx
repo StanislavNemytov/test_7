@@ -6,6 +6,7 @@ const stylesButtonFooter = StyleSheet.create({
     width: 33,
     height: 33,
     resizeMode: "contain",
+    padding: 8,
   },
   btn: {
     width: buttonWidth,

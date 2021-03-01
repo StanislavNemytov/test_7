@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { colors } from "./colors";
+import colors from "./colors";
 
 export const baseStyle = StyleSheet.create({
   container: {
@@ -9,6 +9,7 @@ export const baseStyle = StyleSheet.create({
   scroll: {
     flex: 1,
   },
+  checkoutLayout: { zIndex: 0, paddingTop: 74, position: "relative" },
 });
 
 export { colors };

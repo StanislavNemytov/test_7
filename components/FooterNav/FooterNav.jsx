@@ -3,14 +3,14 @@ import { View } from "react-native";
 import ButtonFooter from "../Buttons/ButtonFooter/ButtonFooter";
 import styles from "./styles";
 
-const FooterNav = (props) => {
+const FooterNav = () => {
   return (
     <View style={styles.footerNav}>
-      <ButtonFooter icon={"home"} />
-      <ButtonFooter icon={"info"} />
-      <ButtonFooter icon={"chat"} />
-      <ButtonFooter icon={"cart"} />
-      <ButtonFooter icon={"account"} />
+      <ButtonFooter icon="home" />
+      <ButtonFooter icon="info" />
+      <ButtonFooter icon="chat" />
+      <ButtonFooter icon="cart" />
+      <ButtonFooter icon="account" />
     </View>
   );
 };
