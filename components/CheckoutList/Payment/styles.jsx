@@ -8,9 +8,9 @@ const stylesPayment = StyleSheet.create({
     alignItems: "center",
   },
   cardDataWrapper: { flex: 1 },
-  img: { resizeMode: "contain", width: 41, height: 27 },
-  cardTitle: { fontWeight: "700" },
-  cardNumber: { color: colors.primary },
+  img: { marginRight: 16, resizeMode: "contain", width: 41, height: 27 },
+  cardTitle: { fontWeight: "500" },
+  cardNumber: { color: colors.primary, fontSize: 12, fontWeight: "500" },
 });
 
 export default stylesPayment;

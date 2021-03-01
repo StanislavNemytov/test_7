@@ -3,6 +3,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 import React from "react";
 import { Image } from "react-native";
+import { Checkout } from "..";
 import { Account, Cart, Chat, Home, Info } from "../../layouts";
 import styles from "./styles";
 
@@ -33,9 +34,13 @@ const TabBar = () => {
           },
         })}
       >
-        {Object.entries(userScreens).map(([name, component]) => (
-          <Tab.Screen name={name} component={component} key={name} />
-        ))}
+        {Object.entries(userScreens).map(([name, component]) => {
+          let Component = component;
+          if (name === "Home") {
+            Component = Checkout;
+          }
+          return <Tab.Screen name={name} component={Component} key={name} />;
+        })}
       </Tab.Navigator>
     </NavigationContainer>
   );

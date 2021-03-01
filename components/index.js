@@ -1,6 +1,7 @@
 import ButtonFooter from "./Buttons/ButtonFooter/ButtonFooter";
 import ButtonHeader from "./Buttons/ButtonHeader/ButtonHeader";
 import Checkout from "./Checkout/Checkout";
+import CheckoutComment from "./CheckoutComment/CheckoutComment";
 import CheckoutList from "./CheckoutList/CheckoutList";
 import Company from "./Company/Company";
 import FooterNav from "./FooterNav/FooterNav";
@@ -18,4 +19,5 @@ export {
   CheckoutList,
   Recipes,
   Checkout,
+  CheckoutComment,
 };

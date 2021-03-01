@@ -10,7 +10,6 @@ const onPress = (navigation) => {
   navigation.navigate("Checkout");
 };
 
-// const Recipes = () => <Text>Recipes</Text>;
 const screens = {
   Checkout: { component: Checkout, title: "Оформление заказа" },
   Recipes: { component: Recipes, title: "Получатель" },

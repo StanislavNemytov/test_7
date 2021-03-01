@@ -7,7 +7,7 @@ const card = require("../../../assets/icons/card.png");
 const Payment = () => {
   return (
     <View style={styles.container}>
-      <Image style={[styles.img, styles.card]} source={card} />
+      <Image style={styles.img} source={card} />
 
       <View style={styles.cardDataWrapper}>
         <Text style={styles.cardTitle}>Банковская карта</Text>

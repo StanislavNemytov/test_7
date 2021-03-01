@@ -7,7 +7,7 @@ const stylesShipMethod = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
   },
-  img: { resizeMode: "contain" },
+  img: { marginRight: 16, resizeMode: "contain", width: 18, height: 24 },
   text: { color: colors.primary, fontWeight: "700" },
 });
 

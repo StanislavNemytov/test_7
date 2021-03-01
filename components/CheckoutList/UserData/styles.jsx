@@ -16,8 +16,8 @@ const stylesUserData = StyleSheet.create({
   },
   userDataWrapper: { flex: 1 },
   img: { resizeMode: "contain" },
-  avatar: { marginRight: 16 },
-  attention: { marginLeft: 16 },
+  avatar: { marginRight: 16, width: 18, height: 18 },
+  attention: { marginLeft: 16, width: 22, height: 24 },
 });
 
 export default stylesUserData;

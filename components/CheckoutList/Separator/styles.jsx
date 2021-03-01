@@ -3,7 +3,7 @@ import { colors } from "../../../src/style/base";
 
 const stylesSeparator = StyleSheet.create({
   separator: {
-    borderColor: colors.gray,
+    borderTopColor: colors.gray,
     borderTopWidth: 1,
     borderStyle: "solid",
   },
