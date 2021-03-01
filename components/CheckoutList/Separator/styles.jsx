@@ -1,9 +1,9 @@
 import { StyleSheet } from "react-native";
-import { baseStyle, colors } from "../../../src/style/base";
+import { colors } from "../../../src/style/base";
 
 const stylesSeparator = StyleSheet.create({
   separator: {
-    borderTopColor: colors.gray,
+    borderColor: colors.gray,
     borderTopWidth: 1,
     borderStyle: "solid",
   },

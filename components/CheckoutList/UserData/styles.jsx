@@ -1,13 +1,12 @@
 import { StyleSheet } from "react-native";
-import { baseStyle, colors } from "../../../src/style/base";
 
 const stylesUserData = StyleSheet.create({
   container: {
-    backgroundColor: "white",
+    // backgroundColor: "white",
     padding: 20,
     flexDirection: "row",
     alignItems: "center",
-    flex: 1,
+    // flex: 1,
   },
   username: {
     fontWeight: "600",

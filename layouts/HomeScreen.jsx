@@ -1,16 +1,20 @@
 import { createStackNavigator } from "@react-navigation/stack";
 import React from "react";
-import { Button, Text } from "react-native";
-import { CheckoutList } from "../components";
+import { Button } from "react-native";
+import { Checkout, Recipes } from "../components";
 import styles from "./styles";
 
 const Stack = createStackNavigator();
 
 const onPress = (navigation) => {
-  navigation.navigate("CheckoutList");
+  navigation.navigate("Checkout");
 };
 
-const Recipes = () => <Text>Recipes</Text>;
+// const Recipes = () => <Text>Recipes</Text>;
+const screens = {
+  Checkout: { component: Checkout, title: "Оформление заказа" },
+  Recipes: { component: Recipes, title: "Получатель" },
+};
 
 const HomeScreen = () => (
   <Stack.Navigator initialRouteName="Home">
@@ -25,22 +29,17 @@ const HomeScreen = () => (
         headerTitleStyle: { alignSelf: "center" },
       }}
     />
-    <Stack.Screen
-      name="CheckoutList"
-      component={CheckoutList}
-      options={{
-        title: "Оформление заказа",
-        ...styles,
-      }}
-    />
-    <Stack.Screen
-      name="Recipes"
-      component={Recipes}
-      options={{
-        title: "Получатель",
-        ...styles,
-      }}
-    />
+    {Object.entries(screens).map(([name, { component, title }]) => (
+      <Stack.Screen
+        name={name}
+        component={component}
+        key={name}
+        options={{
+          title,
+          ...styles,
+        }}
+      />
+    ))}
   </Stack.Navigator>
 );
 

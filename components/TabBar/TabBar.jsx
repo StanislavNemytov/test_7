@@ -23,7 +23,7 @@ const TabBar = () => {
         initialRouteName="Checkout"
         tabBarOptions={{ showLabel: false }}
         screenOptions={({ route }) => ({
-          tabBarIcon: ({ focused, color, size }) => {
+          tabBarIcon: () => {
             return (
               <Image
                 source={images[route.name.toLowerCase()]}

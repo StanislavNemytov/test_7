@@ -4,7 +4,7 @@ import { baseStyle, colors } from "../../src/style/base";
 const stylesHeader = StyleSheet.create({
   header: {
     ...baseStyle.container,
-    backgroundColor: colors.header,
+    backgroundColor: colors.primary,
     paddingTop: 36,
     paddingBottom: 12,
     position: "relative",
