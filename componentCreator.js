@@ -3,7 +3,7 @@ const fs = require("fs");
 const path = require("path");
 
 const files = "jsx";
-const names = ["CheckoutTotal"];
+const names = ["Header"];
 const folder = "";
 const startFolder = ["components", "layouts"];
 

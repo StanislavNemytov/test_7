@@ -1,8 +1,11 @@
 /* eslint-disable react/prop-types */
-import { createStackNavigator } from "@react-navigation/stack";
+import {
+  createStackNavigator,
+  HeaderBackButton,
+} from "@react-navigation/stack";
 import React from "react";
 import { Button } from "react-native";
-import { Checkout, Recipes } from "../components";
+import { Checkout, HeaderScroll, Recipes } from "../components";
 import styles from "./styles";
 
 const Stack = createStackNavigator();
@@ -14,6 +17,7 @@ const onPress = (navigation) => {
 const screens = {
   Checkout: { component: Checkout, title: "Оформление заказа" },
   Recipes: { component: Recipes, title: "Получатель" },
+  HeaderScroll: { component: HeaderScroll, title: "HeaderScroll" },
 };
 
 const ToCheckout = ({ navigation }) => (
@@ -31,17 +35,27 @@ const HomeScreen = () => (
         headerTitleStyle: { alignSelf: "center" },
       }}
     />
-    {Object.entries(screens).map(([name, { component, title }]) => (
-      <Stack.Screen
-        name={name}
-        component={component}
-        key={name}
-        options={{
-          title,
-          ...styles,
-        }}
-      />
-    ))}
+    {Object.entries(screens).map(([name, { component, title }]) => {
+      const options = {
+        title,
+        ...styles,
+        headerTitleStyle: { alignSelf: "center" },
+      };
+      const isCheckout = name.toLowerCase() === "checkout";
+
+      if (isCheckout) {
+        options.header = () => null;
+      }
+
+      return (
+        <Stack.Screen
+          name={name}
+          component={component}
+          key={name}
+          options={{ ...options }}
+        />
+      );
+    })}
   </Stack.Navigator>
 );
 

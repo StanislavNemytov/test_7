@@ -3,14 +3,12 @@ import { baseStyle, colors } from "../../src/style/base";
 
 const stylesCompany = StyleSheet.create({
   container: {
-    ...baseStyle.container,
     width: "100%",
     flexDirection: "row",
     alignItems: "center",
     backgroundColor: colors.lightGray,
-    position: "absolute",
-    top: 0,
-    left: 0,
+    paddingLeft: 20,
+    paddingRight: 20,
   },
   name: {
     fontWeight: "700",
@@ -25,15 +23,15 @@ const stylesCompany = StyleSheet.create({
   imageContainerShadow: {
     marginTop: -6,
     marginBottom: -6,
-    paddingBottom: 2,
+    paddingBottom: 0,
     shadowColor: colors.gray,
     shadowOffset: {
-      width: 10,
-      height: 4,
+      width: 0,
+      height: 2,
     },
     shadowOpacity: 0.75,
-    borderRadius: 41,
-    elevation: 5,
+    borderRadius: 42,
+    elevation: 4,
   },
   imageContainer: {
     width: 84,

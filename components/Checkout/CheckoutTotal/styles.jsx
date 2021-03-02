@@ -4,10 +4,11 @@ import { colors } from "../../../src/style/base";
 const stylesCheckoutTotal = StyleSheet.create({
   container: {
     flexDirection: "row",
-    position: "absolute",
-    bottom: 0,
-    left: 0,
-    right: 0,
+    paddingTop: 20,
+    // position: "absolute",
+    // bottom: 0,
+    // left: 0,
+    // right: 0,
   },
   totalContainer: {
     flex: 1,

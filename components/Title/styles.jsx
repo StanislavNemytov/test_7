@@ -9,8 +9,8 @@ const stylesTitle = StyleSheet.create({
   },
   title_text: {
     color: colors.white,
-    fontSize: 16,
-    fontWeight: "600",
+    fontSize: 18,
+    fontWeight: "500",
   },
 });
 
