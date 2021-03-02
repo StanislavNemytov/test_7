@@ -8,7 +8,8 @@ const stylesHeader = StyleSheet.create({
     position: "relative",
     flexDirection: "row",
     alignItems: "center",
-    height: 64,
+    paddingTop: 8,
+    flex: 1,
   },
   withBack: {
     paddingRight: 42,

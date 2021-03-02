@@ -25,6 +25,7 @@ const Header = ({ navigation }) => {
         <HeaderBackButton
           onPress={() => navigation.goBack()}
           tintColor={theme.colors.background}
+          style={{ marginLeft: 0 }}
         />
       )}
       <Title text="Оформление заказа" />
