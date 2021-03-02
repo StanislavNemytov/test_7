@@ -10,6 +10,19 @@ export const baseStyle = StyleSheet.create({
     flex: 1,
   },
   checkoutLayout: { zIndex: 0, paddingTop: 74, position: "relative" },
+  button: {
+    flex: 1,
+    paddingTop: 10,
+    paddingBottom: 10,
+    backgroundColor: colors.primary,
+  },
+  buttonText: {
+    fontWeight: "500",
+    textAlign: "center",
+    color: colors.white,
+    textTransform: "uppercase",
+    fontSize: 14,
+  },
 });
 
 export { colors };

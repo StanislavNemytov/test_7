@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 import { colors } from "../../../src/style/base";
 
 const stylesCheckoutComment = StyleSheet.create({
-  container: { padding: 20 },
+  container: { paddingTop: 20, paddingLeft: 20, paddingRight: 20 },
   containerComment: {
     marginBottom: 20,
     flexDirection: "row",

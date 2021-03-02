@@ -2,6 +2,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import { Button, Image, Pressable, Text, View } from "react-native";
+import { baseStyle } from "../../../src/style/base";
 import styles from "./styles";
 
 const comment = require("../../../assets/icons/comment.png");
@@ -25,12 +26,14 @@ const CheckoutComment = () => {
           </Text>
         </Pressable>
       </View>
-      <Button
-        title="Стандартный комментарий"
+      <Pressable
+        style={baseStyle.button}
         onPress={() => {
           alert("Select template");
         }}
-      />
+      >
+        <Text style={baseStyle.buttonText}>Стандартный комментарий</Text>
+      </Pressable>
     </View>
   );
 };
